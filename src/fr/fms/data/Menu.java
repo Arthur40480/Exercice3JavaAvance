@@ -67,5 +67,6 @@ public class Menu {
 		for(int i = 0; i < articleList.size(); i++) {
 			System.out.print("[" + (i + 1) + " - " + articleList.get(i).getName() +"]");
 		}
+		System.out.println();
 	}
 }

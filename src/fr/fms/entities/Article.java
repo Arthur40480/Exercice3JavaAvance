@@ -1,4 +1,4 @@
-package fr.fms.article;
+package fr.fms.entities;
 
 public class Article {
 	// Propriétés de classe:
@@ -19,7 +19,7 @@ public class Article {
 	// Accesseurs:
 	public void setPrice(double price) {
 		if(price < 0) {
-			throw new IllegalArgumentException("Le prix ne peut être inférieur à 0€ ");
+			throw new IllegalArgumentException("Le prix de cet article ne peut être inférieur à 0€ ");
 		} else {
 			this.price = price;
 		}

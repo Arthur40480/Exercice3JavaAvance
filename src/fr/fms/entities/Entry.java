@@ -1,6 +1,6 @@
-package fr.fms.article;
+package fr.fms.entities;
 
-public class Entry extends Article{
+public class Entry extends Article {
 	
 	// Constructeurs:
 	public Entry(String name, double price) {

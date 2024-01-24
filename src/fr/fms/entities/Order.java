@@ -10,14 +10,24 @@ public class Order {
 	private int id = 1;
 	
 	// Constructeurs:
-	public Order(ArrayList<Article> articleList, double totalPrice) {
-		this.articleList = articleList;
+	public Order() {
+		this.articleList = new ArrayList<Article>();
 		this.totalPrice = calculateTotalPrice(articleList);
 		this.id = nextId;
 		nextId++;
 	}
 	
 	// Méthode:
+	// Méthode pour ajouter un article dans la liste:
+	public void addArticle(Article article) {
+		this.articleList.add(article);
+		updateTotalPrice();
+	}
+	// Méthode pour mettre à jour le prix total:
+	private void updateTotalPrice() {
+		this.totalPrice = calculateTotalPrice(this.articleList);
+	}
+	// Méthode pour calculer le prix total:
 	private double calculateTotalPrice(ArrayList<Article> articleList) {
 		double total = 0;
 		for(Article article : articleList) {

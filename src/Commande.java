@@ -57,11 +57,7 @@ public class Commande {
 				System.out.println();
 			}
 			
-			System.out.println(order);
-			System.out.println("Voici votre commande :");
-			System.out.println(order.getArticleList());
-			System.out.println(order.getTotalPrice());
-			System.out.println("Nous imprimons la commande :");
+			System.out.println("Nous imprimons votre reçu :");
 			printOrder(order);
 		}
 	}

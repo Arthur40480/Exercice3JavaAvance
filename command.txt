@@ -1,13 +1,8 @@
 ********** Commande 1 **********
-Quiche au thon 7.6€
-Boeuf Bourguignon 14.5€
+Salade César 7.0€
+Poulet Curry Coco 12.0€
 Riz thaï 3.8€
-Bierre blonde (33cl) 3.0€
-Tiramisu 4.3€
-Soupe aux Choux 6.5€
-Poisson du Jour 14.0€
-Cannelloni 4.2€
-Vin (Au verre) 3.5€
-Salade de fruit de saison 3.9€
+Eau plate 2.0€
+Tarte aux fraises maison 4.5€
 
-Prix total : 65.30000000000001€
+Prix total : 29.3€

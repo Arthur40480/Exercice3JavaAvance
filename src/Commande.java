@@ -1,5 +1,5 @@
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -52,7 +52,7 @@ public class Commande {
 				System.out.println("------  " + categories[j] + "  ------");
 				Menu.displayMenu(listMenu.get(j));
 				System.out.print("Veuillez saisir votre choix : ");
-				int userChoice = validationService(scanner, listMenu.get(j).size(), "Veuillez saisir un choix valable: ");
+				int userChoice = validationService(scanner, listMenu.get(j).size() + 1, "Veuillez saisir un choix valable: ");
 				order.addArticle(listMenu.get(j).get(userChoice - 1));;
 				System.out.println();
 			}
@@ -61,6 +61,41 @@ public class Commande {
 			System.out.println("Voici votre commande :");
 			System.out.println(order.getArticleList());
 			System.out.println(order.getTotalPrice());
+			System.out.println("Nous imprimons la commande :");
+			printOrder(order);
+		}
+	}
+	
+	// Méthode pour écrire dans un fichier txt:
+	public static void printOrder(Order order) {
+		File command = new File("command.txt");
+		
+		try (FileOutputStream fileOutputStream = new FileOutputStream(command)) {		
+			command.createNewFile();
+			String titleOrder = "********** Commande " + order.getId() + " **********";
+			fileOutputStream.write(titleOrder.getBytes());
+			fileOutputStream.write(System.lineSeparator().getBytes());
+			
+			order.getArticleList().stream()
+				.filter(article -> !article.getName().equals("Aucun") && !article.getName().equals("Aucune"))
+				.forEach(article -> {
+					try {
+						fileOutputStream.write((article.getName() + " " + article.getPrice() + "€").getBytes());
+						fileOutputStream.write(System.lineSeparator().getBytes());
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				});
+			
+			fileOutputStream.write(System.lineSeparator().getBytes());
+			String totalPriceOrder = "Prix total : " + order.getTotalPrice() + "€";
+			fileOutputStream.write(totalPriceOrder.getBytes());
+			fileOutputStream.write(System.lineSeparator().getBytes());
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

@@ -9,6 +9,6 @@ public class Dessert extends Article {
 	
 	// Méthode:
 	public String toString() {
-		return "Dessert : " + this.getName() + " - Prix : " + this.getPrice() + "€";
+		return this.getName() + " - " + this.getPrice() + "€";
 	}
 }
